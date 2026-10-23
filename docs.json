@@ -185,7 +185,7 @@
     "indexing": "navigable",
     "metatags": {
       "robots": "noindex",
-      "canonical": "https://redround.com",
+      "canonical": "https://redround.com/docs",
       "og:site_name": "RedRound documentation",
       "og:image": "https://redround.com/docs/images/og.png",
       "twitter:image": "https://redround.com/docs/images/og.png"
