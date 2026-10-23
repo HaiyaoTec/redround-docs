@@ -1,0 +1,41 @@
+---
+title: "WordPress"
+description: "Verify a self-hosted WordPress site with the RedRound meta tag or verification file."
+---
+
+This guide is for self-hosted WordPress. Sites hosted on WordPress.com are not accepted; see [Unsupported targets](/verification/unsupported-targets).
+
+<Tabs>
+  <Tab title="HTML meta tag">
+    <Steps>
+      <Step title="Copy the tag">
+        In **Assets**, open the domain, select **Verify domain**, choose **HTML meta**, and copy the tag.
+      </Step>
+      <Step title="Add it to the site head">
+        Use a plugin that inserts code into the site header, such as WPCode, and paste the tag into the header section. Alternatively, add it inside `<head>` in your child theme's `header.php`.
+      </Step>
+      <Step title="Clear caches">
+        Clear your caching plugin and any CDN cache so the home page returns the new HTML.
+      </Step>
+      <Step title="Verify">
+        Select **Verify proof** in RedRound.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Verification file">
+    <Steps>
+      <Step title="Upload the file">
+        Using SFTP or your host's file manager, create a `.well-known` folder in the WordPress root directory (the folder that contains `wp-config.php`) and upload `redround-verification.txt` into it.
+      </Step>
+      <Step title="Verify">
+        Open `https://<domain>/.well-known/redround-verification.txt` to confirm, then select **Verify proof** in RedRound.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Notes
+
+- Verification fields in SEO plugins usually accept only specific search engines and do not output the RedRound tag. Use a header code plugin or the theme instead.
+- Editing a parent theme's `header.php` is overwritten by theme updates. Use a child theme.
+- If a security plugin blocks hidden folders, allow `/.well-known/redround-verification.txt`.

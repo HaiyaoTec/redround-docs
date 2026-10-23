@@ -1,0 +1,34 @@
+---
+title: "GoDaddy"
+description: "Add the RedRound verification TXT record to a domain that uses GoDaddy DNS."
+---
+
+Use this guide if your domain uses GoDaddy's nameservers.
+
+<Steps>
+  <Step title="Copy the record from RedRound">
+    In **Assets**, open the domain, select **Verify domain**, and choose **DNS TXT**. Copy the record name and value.
+  </Step>
+  <Step title="Open DNS management">
+    Sign in to GoDaddy, open your **Domain Portfolio**, select the domain, and open **DNS**.
+  </Step>
+  <Step title="Add the record">
+    Select **Add New Record** and enter:
+
+    | Field | Value |
+    | --- | --- |
+    | Type | `TXT` |
+    | Name | `@` for the root domain, or the subdomain label |
+    | Value | `redround-verification=<value>` |
+    | TTL | Default |
+
+    Select **Save**.
+  </Step>
+  <Step title="Verify">
+    Return to RedRound and select **Verify proof**. GoDaddy changes can take up to an hour to appear.
+  </Step>
+</Steps>
+
+## Notes
+
+If your domain is registered with GoDaddy but uses another DNS provider, such as Cloudflare, add the record at that provider instead.

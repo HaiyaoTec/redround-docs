@@ -1,0 +1,42 @@
+---
+title: "Vercel"
+description: "Verify a domain served by Vercel with a DNS TXT record in Vercel DNS or a verification file in your project."
+---
+
+You can verify a domain served by Vercel in two ways.
+
+<Tabs>
+  <Tab title="DNS TXT record">
+    Use this if the domain uses Vercel's nameservers. Otherwise, add the record at your DNS provider; see [DNS TXT record](/verification/dns-txt).
+
+    <Steps>
+      <Step title="Open the domain">
+        In the Vercel dashboard, open your team's **Domains** and select the domain.
+      </Step>
+      <Step title="Add the record">
+        Add a DNS record with type `TXT`, name `@` or the subdomain label, and value `redround-verification=<value>`.
+      </Step>
+      <Step title="Verify">
+        Return to RedRound and select **Verify proof**.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Verification file">
+    <Steps>
+      <Step title="Add the file to your project">
+        Save the downloaded file as `public/.well-known/redround-verification.txt`. Most frameworks on Vercel, including Next.js, serve the `public` folder at the site root.
+      </Step>
+      <Step title="Deploy">
+        Deploy to the production domain you are verifying.
+      </Step>
+      <Step title="Verify">
+        Open `https://<domain>/.well-known/redround-verification.txt` to confirm, then select **Verify proof** in RedRound.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Notes
+
+- If your project uses rewrites or middleware that catch every path, make sure `/.well-known/redround-verification.txt` still returns the file.
+- Each domain is checked separately. A file on a preview deployment does not verify the production domain.

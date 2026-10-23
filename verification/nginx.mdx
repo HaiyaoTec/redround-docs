@@ -1,0 +1,49 @@
+---
+title: "Nginx"
+description: "Serve the RedRound verification file from an Nginx web server."
+---
+
+Serve the verification file at `/.well-known/redround-verification.txt`.
+
+## Option 1: place the file in the web root
+
+If Nginx serves static files from a `root` directory, create the folder and file there:
+
+```bash
+sudo mkdir -p /var/www/example.com/.well-known
+sudo cp redround-verification.txt /var/www/example.com/.well-known/
+```
+
+Replace `/var/www/example.com` with the `root` of your `server` block.
+
+## Option 2: add a location block
+
+If the site is a proxy to an application server, add a location that serves the file directly. Inside the `server` block for the domain:
+
+```nginx
+location = /.well-known/redround-verification.txt {
+    alias /etc/nginx/redround/redround-verification.txt;
+    default_type text/plain;
+}
+```
+
+Then copy the file and reload Nginx:
+
+```bash
+sudo mkdir -p /etc/nginx/redround
+sudo cp redround-verification.txt /etc/nginx/redround/
+sudo nginx -t && sudo systemctl reload nginx
+```
+
+## Verify
+
+```bash
+curl -i https://example.com/.well-known/redround-verification.txt
+```
+
+The response must be `200` with your value on the first line. Then select **Verify proof** in RedRound.
+
+## Notes
+
+- Add the location to the `server` block for every domain you verify this way, including the HTTPS server block.
+- If a rule denies paths that start with a dot, such as `location ~ /\. { deny all; }`, place the exact-match location above it or exclude `.well-known`.

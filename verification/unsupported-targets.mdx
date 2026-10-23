@@ -1,0 +1,43 @@
+---
+title: "Unsupported targets"
+description: "Address types and hosted platforms RedRound does not accept, and why."
+---
+
+RedRound accepts only domains and HTTP or HTTPS URLs on domains that you own and can verify.
+
+## Address types not accepted
+
+| Address | Example |
+| --- | --- |
+| IPv4 or IPv6 address | `203.0.113.10`, `2001:db8::1` |
+| IP range | `203.0.113.0/24` |
+| URL with an IP address | `https://203.0.113.10/login` |
+| URL containing a username or password | `https://user:pass@example.com/` |
+| Domain without a valid public suffix | `intranet.local` |
+
+There is no manual exception for IP addresses, including for Enterprise agreements. Submitting one does not charge you or use a credit.
+
+## Hosted platforms
+
+Sites hosted on the following platforms are not accepted, because the platform operates the servers and only the platform can authorize testing them:
+
+| Platform | Examples of recognized addresses |
+| --- | --- |
+| Shopify | `*.myshopify.com`, custom domains on Shopify |
+| Wix | `*.wixsite.com`, custom domains on Wix |
+| Squarespace | Custom domains on Squarespace |
+| WordPress.com | `*.wordpress.com`, custom domains on WordPress.com |
+| Webflow | `*.webflow.io`, custom domains on Webflow |
+| Framer | `*.framer.app`, `*.framer.website` |
+| GitHub Pages | `*.github.io` |
+| Notion | `*.notion.site` |
+| Carrd | `*.carrd.co` |
+| Weebly | `*.weebly.com`, `*.weeblysite.com` |
+
+RedRound recognizes these platforms by the domain name, its CNAME records, and response headers, when you add a Target and again when you submit a pentest. If a Target is recognized, the message names the platform.
+
+<Note>
+  Self-hosted WordPress is supported. Only sites hosted on WordPress.com are not.
+</Note>
+
+If you believe a Target was recognized by mistake, email [support@redround.com](mailto:support@redround.com) with the address.

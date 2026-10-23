@@ -1,0 +1,52 @@
+---
+title: "Applications"
+description: "Group the Targets of one product or system into an Application. Every pentest covers exactly one Application."
+---
+
+An **Application** is a product or system that serves one business purpose, such as an online store, a customer portal, or a SaaS product with its API. Each pentest covers one Application and the Targets you select for it.
+
+## What belongs in one Application
+
+Link the Targets that make up the same product, for example:
+
+- The front end, such as `https://shop.example.com/`
+- Its admin area, such as `https://example.com/admin`
+- The API that serves it, such as `https://api.example.com/v1/`
+
+These Targets can come from different Assets. For each Target, describe its purpose in this Application.
+
+Keep separate products in separate Applications, even if they share a company, a root domain, a login system, or a back end. Two Applications are always tested as two pentests.
+
+<Tip>
+  If `/shop/` and `/support/` on the same domain serve two different products, register them as two URL Targets and link each one to its own Application.
+</Tip>
+
+## Create an Application
+
+<Steps>
+  <Step title="Open Applications">
+    Go to **Applications** and select **New application**.
+  </Step>
+  <Step title="Describe it">
+    Enter a name and a short description of what the product does.
+  </Step>
+  <Step title="Link Targets">
+    Select registered Targets and enter the purpose of each one. Optionally set a primary Target and primary URL.
+  </Step>
+</Steps>
+
+New Targets are never added to an Application automatically. Link them yourself when they belong to it.
+
+## Test plans
+
+A Test plan saves the scope you test regularly for one Application: which linked Targets, the primary entry point, paths, exclusions, and test parameters. An Application can have several Test plans, for example one for the full product and one for its API only.
+
+Submitting a pentest from a Test plan copies the plan into the pentest's scope snapshot. Editing the plan later does not change pentests already accepted.
+
+## When a Target changes
+
+If you change the address of a linked Target, the link is marked for review. Open the Application and confirm the link for the new address. Until you do, the Target appears in **New pentest** but cannot be selected.
+
+## Larger scopes
+
+A pentest that selects Targets from more than 30 unique Assets shows a prompt to contact us. Multiple Targets on the same Asset count once. To cover several Applications or continuous testing under one agreement, see [Enterprise](/account-billing/plans/plan-overview#enterprise).

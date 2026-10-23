@@ -1,0 +1,72 @@
+---
+title: "Reading a report"
+description: "How a RedRound report is organized, what each finding contains, and how to read coverage, severity, and versions."
+---
+
+Every report is reviewed by a security researcher before it is published. The web report and the PDF contain the same content. Report text is in English, whatever language the console uses. Evidence and customer-supplied text keep their original language.
+
+## Report tabs
+
+| Tab | Contents |
+| --- | --- |
+| **Overview** | Delivery summary, findings by severity, priority fixes, and coverage limits. |
+| **Findings** | All findings, sorted by severity. Open one for its full details. |
+| **Scope & coverage** | The accepted scope snapshot and coverage for each Target. |
+| **Retests** | Remaining rounds, the request deadline, and each round's results. |
+| **Versions** | Corrections and revisions of the report. |
+
+## Report sections
+
+The PDF follows this order:
+
+1. **Cover and delivery details**: report number, pentest number, version, publication date, and actual test dates.
+2. **Executive summary**: confirmed results, business impact, severity distribution, priority actions, and coverage limits.
+3. **Scope, method, and limits**: Application, selected Targets and URLs, paths and exclusions, the planned window and actual test time, and coverage per Target.
+4. **Findings**: one entry per finding.
+5. **Remediation priorities**: fix actions, each linked to one or more findings, in priority order.
+6. **Finding relationships** (when applicable): how confirmed findings combine.
+7. **Technical observations** (when applicable): components and versions observed that are not findings.
+8. **Revision history and statements**.
+
+## Severity
+
+| Severity | Meaning |
+| --- | --- |
+| **Critical** | Direct, severe impact that needs immediate action. |
+| **High** | Significant impact that should be fixed promptly. |
+| **Medium** | Meaningful impact under specific conditions. |
+| **Low** | Limited impact. |
+| **Info** | No direct impact; useful context or hardening advice. |
+
+Severity is always shown as text, not only as a color. A CVSS score, when given, is a reference. The final severity and any adjustment reason are confirmed by RedRound's reviewer.
+
+## What each finding contains
+
+- **Identification**: a finding ID that stays stable within the report, title, and type.
+- **Rating**: severity, the reason for it, optional CVSS version, score, and vector, CWE, and OWASP category.
+- **Affected locations**: one or more Targets, with the domain or URL, path, method, and parameter.
+- **Issue and impact**: what the problem is, its confirmed impact, and its potential impact.
+- **Evidence**: numbered screenshots, text, and requests and responses. Cookies, authorization headers, and tokens are masked.
+- **Reproduction**: the steps and expected and actual results.
+- **Remediation**: what to change and how to confirm the fix.
+- **References**.
+
+One finding can affect several locations. It still counts as one finding in the report total.
+
+## Coverage
+
+The **Scope & coverage** tab lists each Target in the scope with its result: covered, partly covered, or not covered, and the reason for any gap. A count such as "4 Targets: 3 covered, 1 partly covered" is shown instead of a percentage.
+
+## When no findings were confirmed
+
+A report without confirmed findings states:
+
+> Within the agreed scope and test conditions of this pentest, no vulnerabilities were confirmed.
+
+Any coverage limits are listed next to this statement. The statement applies only to this pentest's scope and test conditions, and is not a certification of the application.
+
+## Versions
+
+A published version is never overwritten. If RedRound corrects a report, it publishes a new version with the reason and the affected findings. Fixes you make are recorded through [Retests](/core/reports/retests), not by editing the report.
+
+If the PDF is not ready yet, the page shows **PDF is being generated**. You can keep reading the web report in the meantime.

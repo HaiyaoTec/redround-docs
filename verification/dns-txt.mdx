@@ -1,0 +1,51 @@
+---
+title: "DNS TXT record"
+description: "Verify domain ownership by adding a RedRound TXT record at your DNS provider."
+---
+
+Add a TXT record that contains your workspace's verification value. This method works for any domain, and a record on the root domain covers all its subdomains.
+
+## Record details
+
+| Field | Value |
+| --- | --- |
+| **Type** | `TXT` |
+| **Name** | `@` for the root domain, or the subdomain label, such as `app` for `app.example.com` |
+| **Value** | `redround-verification=<value>` |
+| **TTL** | Your provider's default, or 300 seconds |
+
+The console shows the exact name and value with copy buttons.
+
+## Steps
+
+<Steps>
+  <Step title="Open the ownership dialog">
+    In **Assets**, open the domain and select **Verify domain**. Choose where to publish the proof, then choose **DNS TXT**.
+  </Step>
+  <Step title="Add the record">
+    Sign in to your DNS provider and add a TXT record with the name and value shown. Keep any existing TXT records, such as SPF.
+  </Step>
+  <Step title="Verify">
+    Return to RedRound and select **Verify proof**. Most providers publish records within minutes. Some take longer.
+  </Step>
+</Steps>
+
+## Check the record yourself
+
+```bash
+dig +short TXT example.com
+```
+
+The output must include a line with your exact value:
+
+```text
+"redround-verification=<value>"
+```
+
+## Notes
+
+- Several TXT records can exist on the same name. RedRound accepts the proof if any of them matches exactly.
+- If your provider adds the domain to the name automatically, enter only `@` or the subdomain label, not the full domain.
+- Keep the record in place. RedRound checks it again before every pentest.
+
+Guides: [Cloudflare](/verification/cloudflare) · [Amazon Route 53](/verification/route-53) · [GoDaddy](/verification/godaddy) · [Namecheap](/verification/namecheap)

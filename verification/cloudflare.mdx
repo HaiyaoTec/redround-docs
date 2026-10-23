@@ -1,0 +1,35 @@
+---
+title: "Cloudflare"
+description: "Add the RedRound verification TXT record to a domain that uses Cloudflare DNS."
+---
+
+Use this guide if your domain's nameservers point to Cloudflare.
+
+<Steps>
+  <Step title="Copy the record from RedRound">
+    In **Assets**, open the domain, select **Verify domain**, and choose **DNS TXT**. Copy the record name and value.
+  </Step>
+  <Step title="Open DNS records">
+    In the Cloudflare dashboard, select your account and domain, then go to **DNS** › **Records**.
+  </Step>
+  <Step title="Add the record">
+    Select **Add record** and enter:
+
+    | Field | Value |
+    | --- | --- |
+    | Type | `TXT` |
+    | Name | `@` for the root domain, or the subdomain label |
+    | TTL | `Auto` |
+    | Content | `redround-verification=<value>` |
+
+    Select **Save**.
+  </Step>
+  <Step title="Verify">
+    Return to RedRound and select **Verify proof**. Cloudflare usually publishes the record within a minute.
+  </Step>
+</Steps>
+
+## Notes
+
+- TXT records are not proxied, so the orange cloud setting does not apply.
+- If you also use Cloudflare to host the site with Workers or Pages, the [verification file](/verification/verification-file) method also works.

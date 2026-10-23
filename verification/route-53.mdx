@@ -1,0 +1,35 @@
+---
+title: "Amazon Route 53"
+description: "Add the RedRound verification TXT record to a domain hosted in an Amazon Route 53 public hosted zone."
+---
+
+Use this guide if your domain's DNS is a public hosted zone in Amazon Route 53.
+
+<Steps>
+  <Step title="Copy the record from RedRound">
+    In **Assets**, open the domain, select **Verify domain**, and choose **DNS TXT**. Copy the record value.
+  </Step>
+  <Step title="Open the hosted zone">
+    In the AWS console, go to **Route 53** › **Hosted zones** and select the public hosted zone for your domain.
+  </Step>
+  <Step title="Create the record">
+    Select **Create record** and enter:
+
+    | Field | Value |
+    | --- | --- |
+    | Record name | Leave empty for the root domain, or enter the subdomain label |
+    | Record type | `TXT` |
+    | Value | `"redround-verification=<value>"` |
+    | TTL | `300` |
+
+    Select **Create records**.
+  </Step>
+  <Step title="Verify">
+    Return to RedRound and select **Verify proof**.
+  </Step>
+</Steps>
+
+## Notes
+
+- Route 53 requires TXT values in double quotes.
+- If a TXT record already exists for the same name, edit it and add the RedRound value on a new line instead of creating a second record. Route 53 allows only one record set per name and type.

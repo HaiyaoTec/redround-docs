@@ -1,0 +1,69 @@
+---
+title: "Assets and Targets"
+description: "Register the domains and URLs you want tested, understand how Targets are grouped into Assets, and manage them over time."
+---
+
+A **Target** is a specific domain or URL you register. RedRound groups Targets that share a host into an **Asset**. You add Targets; Assets are created for you.
+
+## Supported addresses
+
+| Address | Accepted | Example |
+| --- | --- | --- |
+| Domain or subdomain | Yes, as a Hostname Target | `example.com`, `app.example.com` |
+| HTTP or HTTPS URL on a domain | Yes, as a URL Target | `https://example.com/admin`, `https://api.example.com/v1/` |
+| IPv4 or IPv6 address, IP range, or URL with an IP address | No | `203.0.113.10`, `https://203.0.113.10/` |
+| URL containing a username or password | No | `https://user:pass@example.com/` |
+| Site on a hosted platform | No | See [Unsupported targets](/verification/unsupported-targets) |
+
+A URL Target keeps its protocol, port, path, query, and fragment as entered. Registering a URL does not register other paths or services on the same host.
+
+## How Targets are grouped into Assets
+
+- `example.com` and `www.example.com` belong to the same Asset. Both addresses are kept, and each still needs its own verified ownership.
+- Every other subdomain is a separate Asset. `api.example.com` and `app.example.com` are two Assets.
+- Different protocols, ports, and paths on the same host are different Targets in the same Asset.
+- Hosts are not grouped by IP address. Two domains that resolve to the same IP stay in separate Assets.
+
+The following registrations produce 2 Assets and 6 Targets:
+
+| Target | Type | Asset |
+| --- | --- | --- |
+| `example.com` | Hostname | `example.com` |
+| `https://example.com/` | URL | `example.com` |
+| `https://www.example.com/admin` | URL | `example.com` |
+| `https://example.com:8443/` | URL | `example.com` |
+| `https://api.example.com/v1/` | URL | `api.example.com` |
+| `https://api.example.com/v2/` | URL | `api.example.com` |
+
+## Add Targets
+
+<Steps>
+  <Step title="Open Assets">
+    In the console, go to **Assets** and select **Add target**.
+  </Step>
+  <Step title="Enter the address">
+    Enter a domain or a URL. To add many at once, import a text file with one address per line.
+  </Step>
+  <Step title="Verify ownership">
+    If the domain is not verified yet, continue to [ownership verification](/verification). A domain that is already covered by an existing proof is reused.
+  </Step>
+</Steps>
+
+If you enter an address that is already registered in the workspace, RedRound shows the existing Target instead of creating a duplicate.
+
+## Views
+
+**Assets** has two views:
+
+- **Grouped by Asset** shows each Asset with its Targets underneath. Use it to see what you own on each host.
+- **All Targets** lists every Target. Use it to find a specific entry.
+
+Each row shows the address, type, Asset, ownership status, linked Applications, and a menu with details, verify, edit, link to an Application, and archive.
+
+## Edit and archive
+
+- **Editing a description** does not change any scope.
+- **Changing an address** keeps the previous version. Applications that use the Target must confirm the link again before the Target can be used in a new pentest.
+- **Archiving** a Target or an Asset stops it from being used in new pentests. It does not cancel accepted pentests, restore used credits, or delete reports. You can restore archived items.
+
+Accepted pentests and published reports always keep the addresses and scope they were accepted with.

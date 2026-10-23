@@ -1,0 +1,48 @@
+---
+title: "Workspaces"
+description: "How workspaces hold your Targets, pentests, reports, members, and billing, and what owners and members can do."
+---
+
+A workspace holds everything for one customer account: Assets and Targets, ownership verification records, Applications, pentests, reports, credits, the subscription, and the members who can see them. Your login belongs to you, not to a workspace.
+
+## Owning and joining workspaces
+
+- Each user can own one workspace. Signing up creates it, and you become its owner.
+- You can join other workspaces by invitation. If you belong to more than one, switch between them from the menu at the top left of the console.
+- If you joined by invitation first, you can still create your own workspace later from **Profile**.
+
+## Roles
+
+Each workspace has exactly one **owner**. Everyone else is a **member**.
+
+| Action | Owner | Member |
+| --- | --- | --- |
+| Add and verify Targets, manage Applications | Yes | Yes |
+| Create pentest drafts, submit scope, reply to requests | Yes | Yes |
+| Read reports | By report access | By report access |
+| Request a Retest | Yes | Yes |
+| Pay, unlock a report, or use a paid credit | Yes | No |
+| Pause, resume, cancel, or stop a pentest | Yes | No |
+| Manage billing and the subscription | Yes | No |
+| Invite and remove members, transfer ownership | Yes | No |
+| Rename or delete the workspace | Yes | No |
+
+## Members and invitations
+
+Owners invite members by email from **Settings › Members**.
+
+- An invitation link is valid for 7 days and can be used once.
+- The invited person must sign in or sign up with the invited email address to accept.
+- A workspace can have up to 20 pending invitations at a time.
+- Owners can withdraw a pending invitation, remove a member, or transfer ownership to an existing member. After the transfer, the former owner becomes a member.
+
+A member who leaves or is removed loses access immediately. Targets they added and pentests they submitted stay in the workspace. Authorization records keep the email address of the person who authorized each pentest.
+
+## Deleting a workspace
+
+Only the owner can delete a workspace, from **Settings › Workspace**. Before you can delete it:
+
+1. Cancel any active subscription.
+2. Wait until no pentest is submitted or in progress.
+
+Deletion takes effect immediately and cannot be undone. All members lose access, and report content, evidence, and PDFs are deleted. See [Data retention](/account-billing/security/data-retention) for the records RedRound must keep.

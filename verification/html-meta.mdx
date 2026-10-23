@@ -1,0 +1,41 @@
+---
+title: "HTML meta tag"
+description: "Verify domain ownership by adding a RedRound meta tag to the head of your home page."
+---
+
+Add a meta tag to the `<head>` of the home page of the domain.
+
+## Tag
+
+```html
+<meta name="redround-verification" content="<value>">
+```
+
+`<value>` is your workspace's verification value without the `redround-verification=` prefix. The console shows the complete tag with a copy button.
+
+## Steps
+
+<Steps>
+  <Step title="Copy the tag">
+    In **Assets**, open the domain, select **Verify domain**, and choose **HTML meta**.
+  </Step>
+  <Step title="Add it to the home page">
+    Paste the tag inside `<head>` of the page served at `https://<domain>/`.
+  </Step>
+  <Step title="Verify">
+    Publish the change, then select **Verify proof** in RedRound.
+  </Step>
+</Steps>
+
+## Requirements
+
+- The tag must be in the `<head>` element of the HTML returned by the server. Tags added later by JavaScript are not seen.
+- Tags inside comments, scripts, or the `<body>` are ignored.
+- The home page must answer with HTTP status `200`, after at most four redirects within the same root domain.
+- The page can be at most 256 KB.
+
+## Check the tag yourself
+
+```bash
+curl -s https://example.com/ | grep -i redround-verification
+```

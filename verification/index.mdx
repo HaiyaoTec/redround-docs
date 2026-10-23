@@ -1,0 +1,87 @@
+---
+title: "Ownership verification overview"
+sidebarTitle: "Overview"
+description: "Prove you own a domain before RedRound tests it. Choose a verification method and follow the guide for your DNS provider or host."
+---
+
+RedRound tests only domains you have proven you own. You publish a verification value on the domain, and RedRound checks it. Nothing is tested until ownership is verified, and ownership is checked again before every pentest is accepted.
+
+## Verification methods
+
+<CardGroup cols={3}>
+  <Card title="DNS TXT record" icon="/icons/global-line.svg" href="/verification/dns-txt">
+    Add a TXT record at your DNS provider. Works for any domain.
+  </Card>
+  <Card title="Verification file" icon="/icons/file-text-line.svg" href="/verification/verification-file">
+    Upload a text file to your website.
+  </Card>
+  <Card title="HTML meta tag" icon="/icons/code-s-slash-line.svg" href="/verification/html-meta">
+    Add a meta tag to your home page.
+  </Card>
+</CardGroup>
+
+| Method | Where you publish | Best when |
+| --- | --- | --- |
+| [DNS TXT record](/verification/dns-txt) | A TXT record on the domain | You can edit DNS. One record on the root domain covers its subdomains. |
+| [Verification file](/verification/verification-file) | `https://<domain>/.well-known/redround-verification.txt` | You can upload files to the web server. |
+| [HTML meta tag](/verification/html-meta) | `<head>` of `https://<domain>/` | You can edit the home page template. |
+
+## Guides by provider
+
+### DNS providers
+
+| Provider | Method |
+| --- | --- |
+| [Cloudflare](/verification/cloudflare) | DNS TXT record |
+| [Amazon Route 53](/verification/route-53) | DNS TXT record |
+| [GoDaddy](/verification/godaddy) | DNS TXT record |
+| [Namecheap](/verification/namecheap) | DNS TXT record |
+
+### Hosting and web servers
+
+| Platform | Method |
+| --- | --- |
+| [Vercel](/verification/vercel) | DNS TXT record or verification file |
+| [Netlify](/verification/netlify) | DNS TXT record or verification file |
+| [Nginx](/verification/nginx) | Verification file |
+| [WordPress (self-hosted)](/verification/wordpress) | HTML meta tag or verification file |
+
+## The verification value
+
+Each workspace has one verification value, in this form:
+
+```text
+redround-verification=<value>
+```
+
+Find your value in the console, in **Assets**, on the ownership dialog of any domain. All methods use the same value. The meta tag uses only the part after `=`.
+
+## Root domain and subdomains
+
+When you verify, choose where to publish the proof:
+
+- **Root domain (recommended)**: a proof on `example.com` covers `example.com` and all its subdomains, such as `www.example.com` and `api.example.com`, in this workspace.
+- **This domain only**: a proof on `app.example.com` covers only `app.example.com`. It does not cover the root domain or other subdomains.
+
+RedRound looks for the proof on the domain itself first. If it is not there, it checks the root domain. The root domain is determined with the Public Suffix List, so for a domain such as `myname.github.io`, `github.io` is treated as a suffix.
+
+## Statuses
+
+| Status | Meaning |
+| --- | --- |
+| **Verified directly** | A valid proof is published on this domain. |
+| **Covered by root** | A valid proof on the root domain covers this domain. |
+| **Not verified** | No valid proof was found. |
+| **Recheck needed** | A proof was valid before but the latest check of the same method did not pass. |
+
+## What verification does not do
+
+<Warning>
+  Verifying a domain does not add it to any pentest. Each pentest tests only the Targets you select, and checks ownership of their domains again at submission.
+</Warning>
+
+## Limits
+
+- Up to 10 verification checks per domain in 10 minutes.
+- DNS records are read through Cloudflare DNS over HTTPS.
+- File and meta checks follow up to four redirects, only to addresses under the same root domain, and only on default HTTP and HTTPS ports.

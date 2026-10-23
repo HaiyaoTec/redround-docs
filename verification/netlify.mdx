@@ -1,0 +1,41 @@
+---
+title: "Netlify"
+description: "Verify a domain served by Netlify with a DNS TXT record in Netlify DNS or a verification file in your publish directory."
+---
+
+You can verify a domain served by Netlify in two ways.
+
+<Tabs>
+  <Tab title="DNS TXT record">
+    Use this if the domain uses Netlify DNS. Otherwise, add the record at your DNS provider; see [DNS TXT record](/verification/dns-txt).
+
+    <Steps>
+      <Step title="Open DNS settings">
+        In Netlify, go to **Domains**, select the domain, and open its DNS settings.
+      </Step>
+      <Step title="Add the record">
+        Select **Add new record**. Choose type `TXT`, enter `@` or the subdomain label as the name, and `redround-verification=<value>` as the value.
+      </Step>
+      <Step title="Verify">
+        Return to RedRound and select **Verify proof**.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Verification file">
+    <Steps>
+      <Step title="Add the file to your site">
+        Place the downloaded file at `.well-known/redround-verification.txt` inside your publish directory. For frameworks with a static folder, such as `public` or `static`, put it there so the build copies it.
+      </Step>
+      <Step title="Deploy">
+        Deploy to the production domain you are verifying.
+      </Step>
+      <Step title="Verify">
+        Open `https://<domain>/.well-known/redround-verification.txt` to confirm, then select **Verify proof** in RedRound.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Notes
+
+Netlify serves an existing file before applying redirect rules, unless a rule is forced with `!`. If you use a forced catch-all rule, add an exception for the verification file.

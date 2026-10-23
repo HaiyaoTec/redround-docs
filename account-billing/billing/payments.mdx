@@ -1,0 +1,37 @@
+---
+title: "Payments"
+description: "How RedRound takes payment through Stripe, which payment methods are accepted, and who in the workspace can pay."
+---
+
+RedRound takes payments through Stripe. Card details are entered on Stripe's pages and are not stored by RedRound.
+
+## Who can pay
+
+Only the workspace owner can buy a Single report, use a paid credit, or manage the subscription. When a member reaches a payment step, the page shows that the owner must complete it.
+
+## Payment methods
+
+Stripe Checkout shows the payment methods available for your country and currency. Prices are in US dollars.
+
+## When you are charged
+
+| Purchase | Charged |
+| --- | --- |
+| Single report for a new pentest | After the scope check passes and before testing starts. The pentest shows **Awaiting payment** until payment succeeds. |
+| Single report to unlock a report | When you confirm the unlock. |
+| Monthly subscription | At the start of each service month. |
+| Yearly subscription | At the start of each service year. Credits are still granted monthly. |
+
+## Failed renewal
+
+If a subscription renewal fails, Stripe retries the payment for up to 14 days from the first failure. During this period:
+
+- The console home page shows **Payment failed** to the owner.
+- New credits for the service month are not granted until payment succeeds.
+- Accepted pentests and existing reports are not affected.
+
+Update the payment method from **Settings › Billing**. If payment still fails after 14 days, the subscription ends. Existing reports and accepted Retests remain available for their retention periods.
+
+## Taxes
+
+Taxes are calculated at checkout based on the billing details you provide. To show a legal name and tax ID on invoices, enter them at checkout.

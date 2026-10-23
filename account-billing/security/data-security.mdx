@@ -1,0 +1,44 @@
+---
+title: "Data security"
+description: "Where RedRound stores your data, how reports, evidence, and testing accounts are protected, and who can access them."
+---
+
+## Where data is stored
+
+RedRound runs on Cloudflare. Databases and file storage are created in Cloudflare's United States jurisdiction. Requests are processed at the Cloudflare location nearest to you.
+
+| Data | Stored in |
+| --- | --- |
+| Accounts, workspaces, Targets, pentests, and report metadata | Cloudflare D1, US jurisdiction |
+| Report content, evidence, and PDFs | Cloudflare R2, US jurisdiction, private storage |
+
+## Reports and evidence
+
+- Reports are available only to members of the workspace, according to the report's access level.
+- PDFs and evidence are downloaded through short-lived signed links, after access is checked.
+- Report pages are never cached and are not indexed by search engines.
+- Cookies, authorization headers, and tokens in evidence are masked before publication.
+- Email notifications contain only a short summary and a link that requires signing in. Finding details and PDFs are not sent by email.
+
+## Testing accounts
+
+Login details you provide for testing are encrypted before storage. They are used only to test the Target in that pentest and are not shown to support staff. You can remove them at any time; removal deletes them immediately.
+
+## RedRound staff access
+
+Access by RedRound operations staff to report content requires a second confirmation and is recorded in an audit log. Operations accounts require two-factor authentication.
+
+## Payments
+
+Payment details are handled by Stripe. RedRound does not receive or store card numbers.
+
+## Service providers
+
+| Provider | Purpose |
+| --- | --- |
+| Cloudflare | Hosting, database, file storage, and DNS |
+| Stripe | Payments, subscriptions, and invoices |
+| Resend | Transactional email |
+| Google | Sign-in, only if you choose Google sign-in |
+
+Analytics on the public website load only with your consent where required. The console and sign-in pages do not load analytics or advertising tags.

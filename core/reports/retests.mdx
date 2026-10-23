@@ -1,0 +1,80 @@
+---
+title: "Retests"
+description: "Request a Retest to verify fixes for findings in an existing report: eligibility, rounds, deadlines, and how results are shown."
+---
+
+A Retest checks whether findings in an existing report were fixed. Every standard full report includes **two Retest rounds** at no extra cost. A Retest does not use a pentest credit.
+
+## Eligibility
+
+You can request a Retest when all of the following are true:
+
+- The report has standard full access.
+- It has at least one confirmed finding.
+- A Retest round is available.
+- The request is made before the Retest deadline.
+
+| Situation | What the report page shows |
+| --- | --- |
+| Report not unlocked | Unlock the full report to request the included Retests. |
+| Free full report | Free reports do not include Retests. |
+| Both rounds used | Included Retests used. For a full new assessment, create a new pentest. |
+| Deadline passed | The deadline date. Accepted Retests continue. |
+| No confirmed findings | This report has no findings to retest. |
+
+## Deadline
+
+Both rounds share one deadline: **30 days** after standard full access to the report started. For a paid pentest this is when the report was first available; for an unlocked report, it is when the unlock completed.
+
+If RedRound was unavailable or delayed and that affected your ability to request a Retest, the affected time is added back.
+
+## Request a Retest
+
+<Steps>
+  <Step title="Start from the report">
+    Select **Request retest** on the report, on a finding, or after selecting several findings in **Findings**.
+  </Step>
+  <Step title="Choose findings and locations">
+    Select the findings and the affected locations to verify. One request uses one round, whatever the number of findings.
+  </Step>
+  <Step title="Describe the fix">
+    Enter what you changed and the deployed version or time. Do not include passwords or tokens.
+  </Step>
+  <Step title="Confirm">
+    Confirm that the fix is deployed, the scope is unchanged, and this request uses one round. Ownership of the domains is checked again.
+  </Step>
+</Steps>
+
+A Retest only checks the selected findings at their original locations. New domains, new paths, new features, or a full reassessment need a new pentest.
+
+## Rounds
+
+| Round state | Meaning |
+| --- | --- |
+| **Available** | Can be requested before the deadline. |
+| **Reserved** | Accepted and waiting to start. |
+| **In progress** | Verification started. |
+| **Recovery pending** | A platform problem interrupted the round. It will be resumed and is not counted as used. |
+| **Used** | Results were published, or the owner stopped the round after it started. |
+
+A round is used when its results are published, even if a finding is not fixed. If a Retest is canceled or declined before it starts, the round is returned.
+
+You can run both rounds at the same time for different findings. The same location of the same finding cannot be in two Retests at once.
+
+## Results
+
+Each location gets one result:
+
+| Result | Meaning |
+| --- | --- |
+| **Fixed** | The original issue is confirmed fixed under this round's conditions. |
+| **Not fixed** | The original issue still exists, with current evidence. |
+| **Not verified** | The round could not verify the location. The reason is stated. |
+
+A finding is **Fixed** only when all its locations are fixed. If some are fixed and others are not, it is **Partially fixed**.
+
+Retest results are added to the report without changing the original findings or their severity distribution. Each round has its own PDF.
+
+## Tracking your fixes
+
+On each finding, you can set your own status: **Unaddressed**, **Remediation in progress**, **Ready for retest**, or **Risk accepted by customer**. Your status is recorded separately from verified results. Marking a finding **Ready for retest** does not mark it fixed.

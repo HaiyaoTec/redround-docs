@@ -1,0 +1,198 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
+  "name": "RedRound documentation",
+  "description": "Set up targets, verify domain ownership, and read RedRound pentest reports. Product, billing and data handling reference for RedRound customers.",
+  "colors": {
+    "primary": "#DC2626",
+    "light": "#EF4444",
+    "dark": "#B91C1C"
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://redround.com"
+  },
+  "favicon": "/favicon.svg",
+  "appearance": {
+    "default": "dark",
+    "strict": true
+  },
+  "background": {
+    "color": {
+      "light": "#FDFDFD",
+      "dark": "#000000"
+    }
+  },
+  "fonts": {
+    "heading": {
+      "family": "Inter",
+      "weight": 700
+    },
+    "body": {
+      "family": "Inter",
+      "weight": 400
+    }
+  },
+  "styling": {
+    "codeblocks": "dark"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@redround.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Start for free",
+      "href": "https://redround.com"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Intro",
+            "pages": ["index", "core-concepts"]
+          },
+          {
+            "group": "Core",
+            "pages": [
+              "core/workspaces",
+              "core/assets-and-targets",
+              "core/applications",
+              {
+                "group": "Pentests",
+                "pages": [
+                  "core/pentests/pentest-statuses",
+                  "core/pentests/test-scope",
+                  "core/pentests/test-parameters",
+                  "core/pentests/testing-accounts",
+                  "core/pentests/cancel-pause-stop"
+                ]
+              },
+              {
+                "group": "Reports",
+                "pages": [
+                  "core/reports/reading-a-report",
+                  "core/reports/report-access",
+                  "core/reports/retests"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Ownership verification",
+            "pages": [
+              "verification/index",
+              {
+                "group": "Verification methods",
+                "pages": [
+                  "verification/dns-txt",
+                  "verification/verification-file",
+                  "verification/html-meta"
+                ]
+              },
+              {
+                "group": "DNS providers",
+                "pages": [
+                  "verification/cloudflare",
+                  "verification/route-53",
+                  "verification/godaddy",
+                  "verification/namecheap"
+                ]
+              },
+              {
+                "group": "Hosting and web servers",
+                "pages": [
+                  "verification/vercel",
+                  "verification/netlify",
+                  "verification/nginx",
+                  "verification/wordpress"
+                ]
+              },
+              "verification/troubleshooting",
+              "verification/unsupported-targets"
+            ]
+          },
+          {
+            "group": "Account & billing",
+            "pages": [
+              {
+                "group": "Plans & pricing",
+                "pages": [
+                  "account-billing/plans/plan-overview",
+                  "account-billing/plans/free-pentest",
+                  "account-billing/plans/usage"
+                ]
+              },
+              {
+                "group": "Billing & subscription",
+                "pages": [
+                  "account-billing/billing/payments",
+                  "account-billing/billing/change-plan",
+                  "account-billing/billing/cancel-and-refunds",
+                  "account-billing/billing/invoices"
+                ]
+              },
+              {
+                "group": "Security & data protection",
+                "pages": [
+                  "account-billing/security/account-security",
+                  "account-billing/security/data-security",
+                  "account-billing/security/data-retention",
+                  "account-billing/security/where-to-find-policies"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "contextual": {
+    "options": ["copy", "view", "chatgpt", "claude"]
+  },
+  "footer": {
+    "socials": {
+      "website": "https://redround.com"
+    },
+    "links": [
+      {
+        "header": "RedRound",
+        "items": [
+          { "label": "Home", "href": "https://redround.com" },
+          { "label": "Pricing", "href": "https://redround.com/#pricing" },
+          { "label": "Support", "href": "mailto:support@redround.com" }
+        ]
+      },
+      {
+        "header": "Legal",
+        "items": [
+          { "label": "Terms of Service", "href": "https://redround.com/terms-of-service" },
+          { "label": "Privacy Policy", "href": "https://redround.com/privacy-policy" },
+          { "label": "Refund Policy", "href": "https://redround.com/refund-policy" },
+          { "label": "Cookie Policy", "href": "https://redround.com/cookie-policy" }
+        ]
+      }
+    ]
+  },
+  "seo": {
+    "indexing": "navigable",
+    "metatags": {
+      "robots": "noindex",
+      "og:image": "/images/og.png"
+    }
+  },
+  "errors": {
+    "404": {
+      "redirect": false,
+      "title": "Page not found",
+      "description": "This page does not exist. Use search or the navigation to find what you need."
+    }
+  }
+}

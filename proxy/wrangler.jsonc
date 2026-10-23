@@ -1,0 +1,19 @@
+{
+  "name": "redround-docs-proxy",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-12",
+  "workers_dev": false,
+  "preview_urls": false,
+  // Worker routes, not a Custom Domain: redround.com stays the redround Worker's Custom Domain.
+  "routes": [
+    { "pattern": "redround.com/docs*", "zone_name": "redround.com" },
+    { "pattern": "redround.com/_mintlify/*", "zone_name": "redround.com" },
+    { "pattern": "redround.com/mintlify-assets/*", "zone_name": "redround.com" }
+  ],
+  "vars": {
+    // The project's Mintlify host, shown in the Mintlify dashboard after the project is created.
+    "MINTLIFY_HOST": "redround.mintlify.site",
+    "ALLOW_INDEXING": "false"
+  },
+  "observability": { "enabled": true }
+}

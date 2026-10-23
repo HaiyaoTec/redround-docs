@@ -1,0 +1,33 @@
+---
+title: "Namecheap"
+description: "Add the RedRound verification TXT record to a domain that uses Namecheap BasicDNS or PremiumDNS."
+---
+
+Use this guide if your domain uses Namecheap BasicDNS or PremiumDNS.
+
+<Steps>
+  <Step title="Copy the record from RedRound">
+    In **Assets**, open the domain, select **Verify domain**, and choose **DNS TXT**. Copy the record name and value.
+  </Step>
+  <Step title="Open Advanced DNS">
+    Sign in to Namecheap, open **Domain List**, select **Manage** next to the domain, and open the **Advanced DNS** tab.
+  </Step>
+  <Step title="Add the record">
+    Under **Host Records**, select **Add New Record** › **TXT Record** and enter:
+
+    | Field | Value |
+    | --- | --- |
+    | Host | `@` for the root domain, or the subdomain label |
+    | Value | `redround-verification=<value>` |
+    | TTL | `Automatic` |
+
+    Select the checkmark to save.
+  </Step>
+  <Step title="Verify">
+    Return to RedRound and select **Verify proof**.
+  </Step>
+</Steps>
+
+## Notes
+
+If **Nameservers** on the **Domain** tab is set to **Custom DNS**, Namecheap does not serve your DNS. Add the record at the provider those nameservers belong to.

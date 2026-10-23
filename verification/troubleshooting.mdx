@@ -1,0 +1,45 @@
+---
+title: "Troubleshooting verification"
+description: "Why an ownership check did not pass and how to fix each error message."
+---
+
+When a check does not pass, the ownership dialog shows the reason and, when available, the value it found.
+
+## Error messages
+
+| Message | Cause | Fix |
+| --- | --- | --- |
+| The proof was not found or does not match. | The record, file, or tag exists but does not contain your exact value, or was not found. | Copy the value again from the console. Remove extra spaces or quotes. |
+| We couldn't look up the DNS records. | A temporary DNS lookup error. | Try again in a minute. |
+| We couldn't find the domain in DNS. | The domain does not resolve. | Check that the domain has an A, AAAA, or CNAME record. |
+| The domain points to an address we don't connect to. | The domain resolves to a private, local, or reserved address. | Verify with a DNS TXT record instead. |
+| The page redirects to an address we don't follow. | A redirect goes to another root domain, a non-default port, or more than four times. | Serve the file or tag without redirecting to another domain. |
+| The domain didn't answer in time. | The server did not respond. | Check that the site is online, then try again. |
+| We couldn't connect to the domain. | The connection failed. | Check firewall rules that may block RedRound's checks. |
+| The page is too large to read. | The file is over 4 KB, or the home page is over 256 KB. | Use the DNS TXT method or reduce the response size. |
+| The page answered with status *code*. | The server returned a status other than `200`. | Make sure the address returns `200` without login. |
+| The file isn't there yet: the path answers 404. | The file is not at `/.well-known/redround-verification.txt`. | Check the folder name, including the leading dot. |
+| Too many verification attempts. | More than 10 checks for the domain in 10 minutes. | Wait 10 minutes. |
+
+## DNS changes not visible yet
+
+DNS providers can take from a few minutes to a few hours to publish changes. Check with:
+
+```bash
+dig +short TXT example.com @1.1.1.1
+```
+
+RedRound uses Cloudflare DNS over HTTPS (1.1.1.1), so this command shows what RedRound sees.
+
+## Recheck needed
+
+**Recheck needed** means a proof that was valid before did not pass the latest check with the same method. Common causes:
+
+- The record, file, or tag was removed during a site or DNS change.
+- The domain moved to another DNS provider and the record was not copied.
+
+Publish the proof again and select **Recheck ownership**. If a proof made with a different method is still valid, it remains in effect.
+
+## A check was interrupted
+
+If the dialog shows that the last check was interrupted, retry. An interrupted check does not replace existing evidence.

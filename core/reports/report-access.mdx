@@ -1,0 +1,51 @@
+---
+title: "Report access and unlocking"
+description: "Summary, free full, and standard full report access; when a report needs unlocking; and how long each report is kept."
+---
+
+Who can read a report, and for how long, depends on how the pentest was paid for and what it found.
+
+## Access levels
+
+| Access | When it applies | What you see |
+| --- | --- | --- |
+| **Summary** | The free pentest found at least one Medium, High, or Critical finding, and the report is not unlocked yet. | Five items: the number of reviewed findings, the severity distribution, the tested scope, the test dates, and the unlock price. |
+| **Free full** | The free pentest found nothing at Medium or above. | The full web report and PDF. No Retest rounds are included. |
+| **Standard full** | The pentest used a plan credit or a Single report purchase, or the report was unlocked. | The full web report and PDF, with two Retest rounds. |
+
+While a report is at Summary access, finding titles, locations, evidence, and remediation are not sent to your browser, and they do not appear in the console home page, search, or email.
+
+## Unlock a report
+
+Only the workspace owner can unlock a report.
+
+<Steps>
+  <Step title="Open the report summary">
+    Go to **Reports** and open the report, or use **Report ready to unlock** on the console home page.
+  </Step>
+  <Step title="Choose how to unlock">
+    If you have a paid credit available, RedRound asks you to confirm using one credit. Otherwise, buy a Single report for $999.
+  </Step>
+  <Step title="Read the full report">
+    The full report is available immediately. Unlocking does not run a new pentest.
+  </Step>
+</Steps>
+
+You can unlock a report until **27 days** after it was first published. The free pentest credit cannot be used to unlock a report.
+
+## How long reports are kept
+
+| Report | Kept for |
+| --- | --- |
+| Summary or free full report | 30 days after first publication |
+| Standard full report | 12 months after first publication |
+
+The retention period counts from first publication. Unlocking later or canceling your subscription does not change it. If a Retest is in progress when a report would expire, the report and evidence are kept until at least 30 days after the Retest result is published.
+
+## Restricted access
+
+Access to a report can be restricted during a payment dispute, a content security issue, or a deletion request. The report page shows the reason category. Evidence downloads and new Retest requests are unavailable while a restriction applies. Disputing a finding's severity does not restrict the report.
+
+## Downloading the PDF
+
+Download the PDF from the report page. Each PDF corresponds to one report version. Retest results have their own PDF on the **Retests** tab. RedRound does not email PDFs; email notifications link to the report page, which requires signing in.

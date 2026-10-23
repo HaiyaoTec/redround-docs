@@ -1,0 +1,44 @@
+---
+title: "Verification file"
+description: "Verify domain ownership by publishing a RedRound text file at a fixed path on your website."
+---
+
+Upload a text file to your website. RedRound reads the first line of the file.
+
+## File details
+
+| Item | Value |
+| --- | --- |
+| **Address** | `https://<domain>/.well-known/redround-verification.txt` |
+| **Encoding** | UTF-8 plain text |
+| **First line** | `redround-verification=<value>` |
+| **Response** | HTTP status `200` |
+
+## Steps
+
+<Steps>
+  <Step title="Download the file">
+    In **Assets**, open the domain, select **Verify domain**, choose **File**, and select **Download verification file**.
+  </Step>
+  <Step title="Upload it">
+    Place `redround-verification.txt` in the `.well-known` folder at the root of your website, so it is served at the address above.
+  </Step>
+  <Step title="Verify">
+    Open the address in a browser to confirm the value is shown, then select **Verify proof** in RedRound.
+  </Step>
+</Steps>
+
+## Check the file yourself
+
+```bash
+curl -i https://example.com/.well-known/redround-verification.txt
+```
+
+## Requirements
+
+- The file must be reachable over HTTP or HTTPS on the default port.
+- Redirects are followed up to four times, only within the same root domain.
+- A `404` response means the file is not in place yet.
+- The file can be at most 4 KB.
+
+Guides: [Vercel](/verification/vercel) · [Netlify](/verification/netlify) · [Nginx](/verification/nginx) · [WordPress](/verification/wordpress)
