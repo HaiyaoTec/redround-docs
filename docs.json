@@ -16,7 +16,7 @@
   "favicon": "/favicon.svg",
   "appearance": {
     "default": "dark",
-    "strict": true
+    "strict": false
   },
   "background": {
     "color": {
@@ -35,7 +35,7 @@
     }
   },
   "styling": {
-    "codeblocks": "dark"
+    "codeblocks": "system"
   },
   "navbar": {
     "links": [
@@ -185,7 +185,17 @@
     "indexing": "navigable",
     "metatags": {
       "robots": "noindex",
-      "og:image": "/images/og.png"
+      "canonical": "https://redround.com",
+      "og:site_name": "RedRound documentation",
+      "og:image": "https://redround.com/docs/images/og.png",
+      "twitter:image": "https://redround.com/docs/images/og.png"
+    },
+    "organization": {
+      "id": "https://redround.com/#organization",
+      "name": "RedRound",
+      "legalName": "Yousea Technology Limited",
+      "url": "https://redround.com",
+      "logo": "https://redround.com/docs/favicon.svg"
     }
   },
   "errors": {

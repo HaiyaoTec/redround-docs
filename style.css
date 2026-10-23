@@ -1,0 +1,8 @@
+/* Card icons follow the brand red for each theme: #DC2626 on light, #EF4444 on dark. */
+[data-component-part="card-icon"] {
+  color: #dc2626;
+}
+
+.dark [data-component-part="card-icon"] {
+  color: #ef4444;
+}
