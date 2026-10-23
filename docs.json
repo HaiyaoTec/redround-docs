@@ -15,7 +15,7 @@
   },
   "favicon": "/favicon.svg",
   "appearance": {
-    "default": "dark",
+    "default": "system",
     "strict": false
   },
   "background": {
@@ -57,7 +57,10 @@
         "groups": [
           {
             "group": "Intro",
-            "pages": ["index", "core-concepts"]
+            "pages": [
+              "index",
+              "core-concepts"
+            ]
           },
           {
             "group": "Core",
@@ -155,30 +158,11 @@
     ]
   },
   "contextual": {
-    "options": ["copy", "view", "chatgpt", "claude"]
-  },
-  "footer": {
-    "socials": {
-      "website": "https://redround.com"
-    },
-    "links": [
-      {
-        "header": "RedRound",
-        "items": [
-          { "label": "Home", "href": "https://redround.com" },
-          { "label": "Pricing", "href": "https://redround.com/#pricing" },
-          { "label": "Support", "href": "mailto:support@redround.com" }
-        ]
-      },
-      {
-        "header": "Legal",
-        "items": [
-          { "label": "Terms of Service", "href": "https://redround.com/terms-of-service" },
-          { "label": "Privacy Policy", "href": "https://redround.com/privacy-policy" },
-          { "label": "Refund Policy", "href": "https://redround.com/refund-policy" },
-          { "label": "Cookie Policy", "href": "https://redround.com/cookie-policy" }
-        ]
-      }
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude"
     ]
   },
   "seo": {
