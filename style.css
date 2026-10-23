@@ -6,3 +6,8 @@
 .dark [data-component-part="card-icon"] {
   color: #ef4444;
 }
+
+/* No page footer: it would hold only the platform attribution (product owner decision, 2026-10-23). */
+#footer {
+  display: none !important;
+}
