@@ -8,11 +8,12 @@
   "routes": [
     { "pattern": "redround.com/docs*", "zone_name": "redround.com" },
     { "pattern": "redround.com/_mintlify/*", "zone_name": "redround.com" },
-    { "pattern": "redround.com/mintlify-assets/*", "zone_name": "redround.com" }
+    { "pattern": "redround.com/mintlify-assets/*", "zone_name": "redround.com" },
+    { "pattern": "redround.com/.well-known/vercel/*", "zone_name": "redround.com" }
   ],
   "vars": {
     // The project's Mintlify host, shown in the Mintlify dashboard after the project is created.
-    "MINTLIFY_HOST": "redround.mintlify.site",
+    "MINTLIFY_HOST": "red-round.mintlify.site",
     "ALLOW_INDEXING": "false"
   },
   "observability": { "enabled": true }
